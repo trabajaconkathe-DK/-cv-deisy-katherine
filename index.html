@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Deisy Katherine Martínez Chávez | Diseñadora Multimedia</title>
-    <meta name="description" content="CV profesional de Deisy Katherine Martínez - Diseñadora Multimedia & Creativa Digital">
+    <title>Deisy Katherine Martínez Chávez - Diseñadora Multimedia & Creativa Digital</title>
+    <meta name="description" content="CV profesional de Deisy Katherine Martínez Chávez - Técnica en Diseño e Integración de Multimedia con experiencia en diseño gráfico, marketing digital y creación de contenido visual">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ESTILOS PRINCIPALES - OPTIMIZADOS PARA PDF */
+        /* ESTILOS PRINCIPALES - OPTIMIZADOS PARA ATS */
+        :root {
+            --primary-color: #4a3b76;
+            --secondary-color: #6a5a8c;
+            --accent-color: #8a79b3;
+            --light-accent: #e2d1f9;
+            --background-light: #f8f6fc;
+            --text-dark: #333333;
+            --text-medium: #555555;
+            --text-light: #666666;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -16,41 +27,45 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.5;
-            color: #333;
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
             background: #f8f9fa;
             padding: 20px;
+            -webkit-font-smoothing: antialiased;
         }
 
         .cv-container {
-            max-width: 210mm; /* Tamaño A4 */
+            max-width: 210mm;
             min-height: 297mm;
             margin: 0 auto;
             background: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
-        /* HEADER */
+        /* HEADER - SEMÁNTICO PARA ATS */
         .header {
-            background: linear-gradient(135deg, #e2d1f9, #c9b6e4);
+            background: linear-gradient(135deg, var(--light-accent), #c9b6e4);
             padding: 30px 40px;
-            color: #4a3b76;
+            color: var(--primary-color);
             text-align: center;
+            border-bottom: 3px solid var(--accent-color);
         }
 
         .name {
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 5px;
+            color: var(--primary-color);
         }
 
         .title {
             font-size: 18px;
             font-weight: 500;
-            color: #6a5a8c;
+            color: var(--secondary-color);
             margin-bottom: 15px;
         }
 
@@ -72,12 +87,11 @@
         .main-content {
             display: flex;
             flex: 1;
-            padding: 0;
         }
 
         .sidebar {
             flex: 1;
-            background: #f8f6fc;
+            background: var(--background-light);
             padding: 25px;
             border-right: 1px solid #e9ecef;
         }
@@ -87,7 +101,7 @@
             padding: 25px;
         }
 
-        /* SECCIONES */
+        /* SECCIONES - ESTRUCTURA SEMÁNTICA */
         .section {
             margin-bottom: 20px;
             page-break-inside: avoid;
@@ -96,20 +110,16 @@
         .section-title {
             font-size: 16px;
             font-weight: 600;
-            color: #6a5a8c;
+            color: var(--secondary-color);
             margin-bottom: 12px;
             padding-bottom: 6px;
-            border-bottom: 2px solid #e2d1f9;
+            border-bottom: 2px solid var(--light-accent);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .section-title i {
-            font-size: 14px;
-        }
-
-        /* HABILIDADES */
+        /* HABILIDADES - LISTAS SEMÁNTICAS */
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -122,7 +132,7 @@
 
         .category-title {
             font-weight: 600;
-            color: #6a5a8c;
+            color: var(--secondary-color);
             margin-bottom: 6px;
             font-size: 13px;
         }
@@ -135,92 +145,100 @@
         .skills-list li {
             margin-bottom: 4px;
             font-size: 12px;
-            color: #555;
+            color: var(--text-medium);
             padding-left: 12px;
             position: relative;
         }
 
         .skills-list li:before {
             content: "•";
-            color: #c9b6e4;
+            color: var(--accent-color);
             position: absolute;
             left: 0;
         }
 
-        /* EXPERIENCIA Y EDUCACIÓN */
+        /* EXPERIENCIA - ESTRUCTURA ATS */
         .experience-item, .education-item {
             margin-bottom: 16px;
             padding: 12px;
             background: #fafafa;
             border-radius: 6px;
-            border-left: 3px solid #e2d1f9;
+            border-left: 3px solid var(--light-accent);
         }
 
         .item-header {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 4px;
         }
 
         .item-title {
             font-weight: 600;
-            color: #4a3b76;
+            color: var(--primary-color);
             font-size: 14px;
         }
 
         .item-date {
-            color: #8a79b3;
+            color: var(--accent-color);
             font-size: 12px;
             white-space: nowrap;
         }
 
         .item-subtitle {
             font-weight: 500;
-            color: #6a5a8c;
+            color: var(--secondary-color);
             margin-bottom: 6px;
             font-size: 13px;
         }
 
         .item-description {
-            color: #666;
+            color: var(--text-light);
             font-size: 12px;
             line-height: 1.4;
         }
 
-        /* BOTONES */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px auto;
-            max-width: 210mm;
-            flex-wrap: wrap;
+        /* BOTÓN DINÁMICO DE IMPRESIÓN */
+        .print-button-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
         }
 
-        .print-btn, .pdf-btn {
-            background: #8a79b3;
+        .print-btn {
+            background: var(--accent-color);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 20px;
+            border-radius: 25px;
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 4px 12px rgba(138, 121, 179, 0.3);
+            transition: all 0.3s ease;
         }
 
-        .print-btn:hover, .pdf-btn:hover {
-            background: #6a5a8c;
+        .print-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(138, 121, 179, 0.4);
         }
 
-        /* ESTILOS PARA IMPRESIÓN/PDF */
+        .print-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ESTILOS PARA IMPRESIÓN - OPTIMIZADO ATS */
         @media print {
             body {
                 background: white !important;
                 padding: 0 !important;
                 margin: 0 !important;
+                font-size: 12pt;
             }
             
             .cv-container {
@@ -230,31 +248,38 @@
                 min-height: auto !important;
             }
             
-            .button-container {
+            .print-button-container {
                 display: none !important;
             }
             
-            /* Asegurar que los colores se impriman */
+            /* ASEGURAR LEGIBILIDAD EN IMPRESIÓN */
             .header {
-                background: #e2d1f9 !important;
+                background: var(--light-accent) !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
             
             .sidebar {
-                background: #f8f6fc !important;
+                background: var(--background-light) !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
             
-            /* Evitar saltos de página dentro de elementos */
+            /* EVITAR SALTOS DE PÁGINA INNECESARIOS */
             .section, .experience-item, .education-item {
                 page-break-inside: avoid !important;
+                break-inside: avoid !important;
             }
             
-            /* Asegurar buen espaciado */
-            .main-content {
-                display: flex !important;
+            /* MEJORAR LEGIBILIDAD DEL TEXTO */
+            .item-description, .profile-text {
+                font-size: 11pt !important;
+                line-height: 1.5 !important;
+            }
+            
+            /* ASEGURAR CONTRASTE EN IMPRESIÓN */
+            .name, .item-title {
+                color: black !important;
             }
         }
 
@@ -275,17 +300,20 @@
                 gap: 8px;
             }
             
-            .button-container {
-                flex-direction: column;
-                align-items: center;
+            .print-button-container {
+                position: relative;
+                top: auto;
+                right: auto;
+                text-align: center;
+                margin-bottom: 20px;
             }
         }
 
-        /* TEXTOS */
+        /* TEXTOS OPTIMIZADOS ATS */
         .profile-text {
             font-size: 13px;
             line-height: 1.5;
-            color: #555;
+            color: var(--text-medium);
             text-align: justify;
         }
         
@@ -296,15 +324,15 @@
         
         .reference-name {
             font-weight: 600;
-            color: #4a3b76;
+            color: var(--primary-color);
         }
         
         .reference-position {
-            color: #6a5a8c;
+            color: var(--secondary-color);
             font-style: italic;
         }
 
-        /* IDIOMAS */
+        /* BARRA DE PROGRESO IDIOMAS */
         .language-item {
             margin-bottom: 10px;
         }
@@ -313,6 +341,7 @@
             font-weight: 500;
             margin-bottom: 4px;
             font-size: 12px;
+            color: var(--text-dark);
         }
 
         .skill-bar {
@@ -324,24 +353,48 @@
 
         .skill-level {
             height: 100%;
-            background: #c9b6e4;
+            background: var(--accent-color);
             border-radius: 3px;
+        }
+
+        /* ANIMACIONES DINÁMICAS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .experience-item, .education-item {
+            transition: transform 0.2s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateX(5px);
         }
     </style>
 </head>
 <body>
-    <div class="button-container">
-        <button class="print-btn" onclick="window.print()">
-            <i class="fas fa-print"></i> Imprimir CV
-        </button>
-        <button class="pdf-btn" onclick="generatePDF()">
-            <i class="fas fa-file-pdf"></i> Descargar PDF
+    <!-- BOTÓN DINÁMICO DE IMPRESIÓN -->
+    <div class="print-button-container">
+        <button class="print-btn" onclick="handlePrint()">
+            <i class="fas fa-print"></i> 
+            <span class="btn-text">Imprimir CV</span>
         </button>
     </div>
 
+    <!-- CONTENIDO PRINCIPAL DEL CV -->
     <div class="cv-container" id="cv-content">
-        <!-- HEADER -->
-        <div class="header">
+        <!-- ENCABEZADO SEMÁNTICO -->
+        <header class="header">
             <h1 class="name">Deisy Katherine Martínez Chávez</h1>
             <div class="title">Diseñadora Multimedia & Creativa Digital</div>
             <div class="contact-info">
@@ -358,21 +411,21 @@
                     <span>Vistahermosa, Meta - Colombia</span>
                 </div>
             </div>
-        </div>
+        </header>
         
         <!-- CONTENIDO PRINCIPAL -->
-        <div class="main-content">
-            <!-- SIDEBAR -->
-            <div class="sidebar">
-                <!-- PERFIL -->
-                <div class="section">
+        <main class="main-content">
+            <!-- BARRA LATERAL -->
+            <aside class="sidebar">
+                <!-- PERFIL PROFESIONAL -->
+                <section class="section">
                     <h2 class="section-title"><i class="fas fa-user"></i> Perfil Profesional</h2>
                     <p class="profile-text">Técnica en Diseño e Integración de Multimedia con experiencia en creación de contenido visual, marketing digital y servicio al cliente. Más de dos años de experiencia en labores que combinan habilidades administrativas con apoyo en proyectos creativos y comunitarios. Competencias sólidas en diseño gráfico, edición básica de video y foto, y manejo de redes sociales.</p>
-                </div>
+                </section>
                 
-                <!-- HABILIDADES -->
-                <div class="section">
-                    <h2 class="section-title"><i class="fas fa-code"></i> Habilidades</h2>
+                <!-- HABILIDADES TÉCNICAS -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-code"></i> Habilidades Técnicas</h2>
                     <div class="skills-grid">
                         <div class="skills-category">
                             <div class="category-title">Diseño & Multimedia</div>
@@ -401,21 +454,24 @@
                                 <li>Herramientas Ofimáticas</li>
                             </ul>
                         </div>
-                        <div class="skills-category">
-                            <div class="category-title">Habilidades Personales</div>
-                            <ul class="skills-list">
-                                <li>Creatividad e Innovación</li>
-                                <li>Adaptabilidad</li>
-                                <li>Organización</li>
-                                <li>Trabajo en Equipo</li>
-                                <li>Servicio al Cliente</li>
-                            </ul>
-                        </div>
                     </div>
-                </div>
+                </section>
+
+                <!-- HABILIDADES PERSONALES -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-brain"></i> Habilidades Personales</h2>
+                    <ul class="skills-list">
+                        <li>Creatividad e Innovación</li>
+                        <li>Adaptabilidad y Aprendizaje Rápido</li>
+                        <li>Organización y Gestión del Tiempo</li>
+                        <li>Trabajo en Equipo y Colaboración</li>
+                        <li>Servicio al Cliente y Comunicación</li>
+                        <li>Resolución de Problemas</li>
+                    </ul>
+                </section>
                 
                 <!-- IDIOMAS -->
-                <div class="section">
+                <section class="section">
                     <h2 class="section-title"><i class="fas fa-language"></i> Idiomas</h2>
                     <div class="language-item">
                         <div class="skill-name">Español (Nativo)</div>
@@ -429,91 +485,91 @@
                             <div class="skill-level" style="width: 40%"></div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </section>
+            </aside>
             
             <!-- CONTENIDO PRINCIPAL -->
             <div class="content">
                 <!-- EXPERIENCIA LABORAL -->
-                <div class="section">
+                <section class="section">
                     <h2 class="section-title"><i class="fas fa-briefcase"></i> Experiencia Laboral</h2>
                     
-                    <div class="experience-item">
+                    <article class="experience-item">
                         <div class="item-header">
-                            <div class="item-title">Diseñadora Freelance y Emprendedora</div>
+                            <h3 class="item-title">Diseñadora Freelance y Emprendedora</h3>
                             <div class="item-date">2025 – Actualidad</div>
                         </div>
                         <div class="item-subtitle">DeKora | Vistahermosa, Meta</div>
                         <div class="item-description">
                             Creación de productos artesanales y digitales, incluyendo ilustraciones digitales, arte personalizado y materiales de decoración. Diseño de piezas visuales para redes sociales, catálogos, flyers y tarjetas de presentación para pequeños negocios.
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="experience-item">
+                    <article class="experience-item">
                         <div class="item-header">
-                            <div class="item-title">Asesora de Ventas</div>
+                            <h3 class="item-title">Asesora de Ventas</h3>
                             <div class="item-date">Junio 2025 – Julio 2025</div>
                         </div>
                         <div class="item-subtitle">Consuerte del Meta | Vistahermosa, Meta</div>
                         <div class="item-description">
                             Atención personalizada al cliente y asesoramiento en servicios, aplicando técnicas de venta y servicio al cliente. Manejo de caja, recargas y transacciones, con enfoque en la exactitud y eficiencia.
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="experience-item">
+                    <article class="experience-item">
                         <div class="item-header">
-                            <div class="item-title">Asistente Administrativa y de Proyectos</div>
+                            <h3 class="item-title">Asistente Administrativa y de Proyectos</h3>
                             <div class="item-date">2024 – 2025</div>
                         </div>
                         <div class="item-subtitle">ASOMUDEM – Asociación de Mujeres Emprendedoras | Vistahermosa, Meta</div>
                         <div class="item-description">
                             Apoyo en la gestión documental y seguimiento de proyectos comunitarios y de emprendimiento. Coordinación y logística de talleres y actividades comunitarias.
                         </div>
-                    </div>
-                </div>
+                    </article>
+                </section>
                 
                 <!-- FORMACIÓN ACADÉMICA -->
-                <div class="section">
+                <section class="section">
                     <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formación Académica</h2>
-                    <div class="education-item">
+                    <article class="education-item">
                         <div class="item-header">
-                            <div class="item-title">Técnica en Diseño e Integración de Multimedia</div>
+                            <h3 class="item-title">Técnica en Diseño e Integración de Multimedia</h3>
                             <div class="item-date">2023</div>
                         </div>
                         <div class="item-subtitle">SENA - Servicio Nacional de Aprendizaje</div>
-                    </div>
+                    </article>
                     
-                    <div class="education-item">
+                    <article class="education-item">
                         <div class="item-header">
-                            <div class="item-title">Bachiller Académico</div>
+                            <h3 class="item-title">Bachiller Académico</h3>
                             <div class="item-date">2023</div>
                         </div>
                         <div class="item-subtitle">Institución Educativa Los Centauros, Vistahermosa, Meta</div>
-                    </div>
-                </div>
+                    </article>
+                </section>
                 
                 <!-- FORMACIÓN COMPLEMENTARIA -->
-                <div class="section">
+                <section class="section">
                     <h2 class="section-title"><i class="fas fa-certificate"></i> Formación Complementaria</h2>
-                    <div class="education-item">
+                    <article class="education-item">
                         <div class="item-header">
-                            <div class="item-title">Marketing Digital & Estrategia</div>
+                            <h3 class="item-title">Marketing Digital & Estrategia</h3>
                             <div class="item-date">2024</div>
                         </div>
                         <div class="item-subtitle">SENA - Estrategia de Marketing de Contenidos Digitales</div>
-                    </div>
+                    </article>
                     
-                    <div class="education-item">
+                    <article class="education-item">
                         <div class="item-header">
-                            <div class="item-title">Diseño & Medios Digitales</div>
+                            <h3 class="item-title">Diseño & Medios Digitales</h3>
                             <div class="item-date">2023-2024</div>
                         </div>
                         <div class="item-subtitle">SENA - Ilustración Digital, Fotografía, Escritura Audiovisual</div>
-                    </div>
-                </div>
+                    </article>
+                </section>
                 
                 <!-- REFERENCIAS -->
-                <div class="section">
+                <section class="section">
                     <h2 class="section-title"><i class="fas fa-users"></i> Referencias</h2>
                     <div class="reference-item">
                         <div class="reference-name">María Cecilia Lozano</div>
@@ -526,43 +582,81 @@
                         <div class="reference-position">Representante legal y referente comunitaria</div>
                         <div><i class="fas fa-phone"></i> 310 223 0357</div>
                     </div>
-                    <p style="font-style: italic; margin-top: 8px; color: #666; font-size: 11px;">Disponibles bajo solicitud</p>
-                </div>
+                    <p style="font-style: italic; margin-top: 8px; color: var(--text-light); font-size: 11px;">Disponibles bajo solicitud</p>
+                </section>
             </div>
-        </div>
+        </main>
     </div>
 
     <script>
-        // Función para generar PDF usando el sistema de impresión nativo
-        function generatePDF() {
-            // Abrir diálogo de impresión que permite guardar como PDF
-            window.print();
+        // FUNCIÓN DINÁMICA DE IMPRESIÓN
+        function handlePrint() {
+            const printBtn = document.querySelector('.print-btn');
+            const btnText = printBtn.querySelector('.btn-text');
+            
+            // Animación de carga
+            printBtn.disabled = true;
+            btnText.textContent = 'Preparando...';
+            printBtn.style.background = '#6a5a8c';
+            
+            // Simular procesamiento
+            setTimeout(() => {
+                btnText.textContent = 'Imprimiendo...';
+                
+                // Abrir diálogo de impresión
+                setTimeout(() => {
+                    window.print();
+                    
+                    // Restaurar botón después de imprimir
+                    setTimeout(() => {
+                        printBtn.disabled = false;
+                        btnText.textContent = 'Imprimir CV';
+                        printBtn.style.background = '';
+                    }, 2000);
+                    
+                }, 500);
+                
+            }, 800);
         }
 
-        // Optimizar para impresión/PDF
-        document.addEventListener('DOMContentLoaded', function() {
-            // Agregar estilos específicos para impresión
-            const printStyles = `
-                @media print {
-                    body * {
-                        visibility: hidden;
-                    }
-                    .cv-container, .cv-container * {
-                        visibility: visible;
-                    }
-                    .cv-container {
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        width: 100%;
-                    }
-                }
-            `;
+        // DETECCIÓN DE IMPRESIÓN COMPLETADA
+        window.addEventListener('afterprint', function() {
+            const printBtn = document.querySelector('.print-btn');
+            const btnText = printBtn.querySelector('.btn-text');
             
-            const styleSheet = document.createElement("style");
-            styleSheet.innerText = printStyles;
-            document.head.appendChild(styleSheet);
+            printBtn.disabled = false;
+            btnText.textContent = 'Imprimir CV';
+            printBtn.style.background = '';
         });
+
+        // MEJORAS DE USABILIDAD
+        document.addEventListener('DOMContentLoaded', function() {
+            // Agregar tooltip al botón de impresión
+            const printBtn = document.querySelector('.print-btn');
+            printBtn.title = "Haz clic para imprimir o guardar como PDF";
+            
+            // Efectos de hover mejorados
+            printBtn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            printBtn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+            
+            // Animación de entrada para las secciones
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // COMPATIBILIDAD CON ATS - ESTRUCTURA SEMÁNTICA
+        // El CV utiliza etiquetas semánticas HTML5 que son fácilmente legibles por ATS
+        // - header, main, aside, section, article para estructura clara
+        // - h1, h2, h3 para jerarquía de títulos
+        // - listas ul/li para habilidades
+        // - texto claro y keywords relevantes para la industria
     </script>
 </body>
 </html>

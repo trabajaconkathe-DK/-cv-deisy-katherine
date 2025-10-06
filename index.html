@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ESTILOS PRINCIPALES - OPTIMIZADOS PARA ATS */
+        /* ESTILOS PRINCIPALES - OPTIMIZADOS PARA GITHUB */
         :root {
             --primary-color: #4a3b76;
             --secondary-color: #6a5a8c;
@@ -30,8 +30,9 @@
             font-family: 'Inter', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 20px;
+            min-height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -40,19 +41,35 @@
             min-height: 297mm;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            position: relative;
+            transition: transform 0.3s ease;
         }
 
-        /* HEADER - SEMÁNTICO PARA ATS */
+        .cv-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* HEADER */
         .header {
             background: linear-gradient(135deg, var(--light-accent), #c9b6e4);
             padding: 30px 40px;
             color: var(--primary-color);
             text-align: center;
-            border-bottom: 3px solid var(--accent-color);
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c9b6e4, #f0f0f0);
         }
 
         .name {
@@ -101,10 +118,11 @@
             padding: 25px;
         }
 
-        /* SECCIONES - ESTRUCTURA SEMÁNTICA */
+        /* SECCIONES */
         .section {
             margin-bottom: 20px;
             page-break-inside: avoid;
+            animation: fadeInUp 0.6s ease-out;
         }
 
         .section-title {
@@ -117,9 +135,24 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            cursor: pointer;
+            transition: color 0.3s ease;
         }
 
-        /* HABILIDADES - LISTAS SEMÁNTICAS */
+        .section-title:hover {
+            color: var(--primary-color);
+        }
+
+        .section-title i {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .section-title.active i {
+            transform: rotate(90deg);
+        }
+
+        /* HABILIDADES */
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -148,6 +181,11 @@
             color: var(--text-medium);
             padding-left: 12px;
             position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .skills-list li:hover {
+            color: var(--primary-color);
         }
 
         .skills-list li:before {
@@ -155,15 +193,28 @@
             color: var(--accent-color);
             position: absolute;
             left: 0;
+            transition: color 0.3s ease;
         }
 
-        /* EXPERIENCIA - ESTRUCTURA ATS */
+        .skills-list li:hover:before {
+            color: var(--primary-color);
+        }
+
+        /* EXPERIENCIA */
         .experience-item, .education-item {
             margin-bottom: 16px;
             padding: 12px;
             background: #fafafa;
             border-radius: 6px;
             border-left: 3px solid var(--light-accent);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateX(5px);
+            background: #f5f5f5;
+            border-left-color: var(--accent-color);
         }
 
         .item-header {
@@ -198,7 +249,51 @@
             line-height: 1.4;
         }
 
-        /* BOTÓN DINÁMICO DE IMPRESIÓN */
+        /* QR CODE DINÁMICO */
+        .qr-section {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: var(--background-light);
+            border-radius: 10px;
+            border: 2px solid var(--light-accent);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .qr-section:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-color);
+            box-shadow: 0 5px 15px rgba(138, 121, 179, 0.2);
+        }
+
+        .qr-section img {
+            border-radius: 8px;
+            border: 2px solid var(--light-accent);
+            transition: all 0.3s ease;
+        }
+
+        .qr-section:hover img {
+            border-color: var(--accent-color);
+        }
+
+        .url-display {
+            background: var(--light-accent);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-size: 11px;
+            word-break: break-all;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .qr-section:hover .url-display {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* BOTÓN DE IMPRESIÓN DINÁMICO */
         .print-button-container {
             position: fixed;
             top: 20px;
@@ -232,7 +327,11 @@
             transform: translateY(0);
         }
 
-        /* ESTILOS PARA IMPRESIÓN - OPTIMIZADO ATS */
+        .print-btn.pulse {
+            animation: pulse 1s infinite;
+        }
+
+        /* ESTILOS PARA IMPRESIÓN */
         @media print {
             body {
                 background: white !important;
@@ -246,13 +345,14 @@
                 margin: 0 !important;
                 max-width: none !important;
                 min-height: auto !important;
+                border-radius: 0 !important;
             }
             
-            .print-button-container {
+            .print-button-container,
+            .qr-section {
                 display: none !important;
             }
             
-            /* ASEGURAR LEGIBILIDAD EN IMPRESIÓN */
             .header {
                 background: var(--light-accent) !important;
                 -webkit-print-color-adjust: exact !important;
@@ -265,21 +365,14 @@
                 print-color-adjust: exact !important;
             }
             
-            /* EVITAR SALTOS DE PÁGINA INNECESARIOS */
             .section, .experience-item, .education-item {
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
             }
             
-            /* MEJORAR LEGIBILIDAD DEL TEXTO */
             .item-description, .profile-text {
                 font-size: 11pt !important;
                 line-height: 1.5 !important;
-            }
-            
-            /* ASEGURAR CONTRASTE EN IMPRESIÓN */
-            .name, .item-title {
-                color: black !important;
             }
         }
 
@@ -307,9 +400,14 @@
                 text-align: center;
                 margin-bottom: 20px;
             }
+            
+            .print-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
-        /* TEXTOS OPTIMIZADOS ATS */
+        /* TEXTOS */
         .profile-text {
             font-size: 13px;
             line-height: 1.5;
@@ -332,7 +430,7 @@
             font-style: italic;
         }
 
-        /* BARRA DE PROGRESO IDIOMAS */
+        /* IDIOMAS */
         .language-item {
             margin-bottom: 10px;
         }
@@ -355,9 +453,10 @@
             height: 100%;
             background: var(--accent-color);
             border-radius: 3px;
+            transition: width 1s ease-in-out;
         }
 
-        /* ANIMACIONES DINÁMICAS */
+        /* ANIMACIONES */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -369,16 +468,34 @@
             }
         }
 
-        .section {
-            animation: fadeInUp 0.6s ease-out;
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(138, 121, 179, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(138, 121, 179, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(138, 121, 179, 0);
+            }
         }
 
-        .experience-item, .education-item {
-            transition: transform 0.2s ease;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
         }
 
-        .experience-item:hover, .education-item:hover {
-            transform: translateX(5px);
+        .social-link {
+            color: var(--accent-color);
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--primary-color);
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -393,7 +510,7 @@
 
     <!-- CONTENIDO PRINCIPAL DEL CV -->
     <div class="cv-container" id="cv-content">
-        <!-- ENCABEZADO SEMÁNTICO -->
+        <!-- ENCABEZADO -->
         <header class="header">
             <h1 class="name">Deisy Katherine Martínez Chávez</h1>
             <div class="title">Diseñadora Multimedia & Creativa Digital</div>
@@ -486,6 +603,31 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- QR CODE DINÁMICO -->
+                <div class="qr-section" onclick="copyURL()">
+                    <p style="margin-bottom: 10px; font-weight: 500; color: var(--primary-color);">📱 Escanea para ver mi CV online</p>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://trabajaconkathe-dk.github.io/-cv-deisy-katherine/" 
+                         alt="QR Code para mi CV"
+                         id="qr-code">
+                    <div class="url-display">
+                        <small id="url-text">https://trabajaconkathe-dk.github.io/-cv-deisy-katherine/</small>
+                    </div>
+                    <p style="font-size: 10px; color: var(--text-light); margin-top: 5px;">👆 Haz clic para copiar URL</p>
+                </div>
+
+                <!-- REDES SOCIALES -->
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/trabajaconkathe" class="social-link" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:trabajaconkathe@gmail.com" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+573213795430" class="social-link" title="Llamar">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
             </aside>
             
             <!-- CONTENIDO PRINCIPAL -->
@@ -595,6 +737,7 @@
             const btnText = printBtn.querySelector('.btn-text');
             
             // Animación de carga
+            printBtn.classList.add('pulse');
             printBtn.disabled = true;
             btnText.textContent = 'Preparando...';
             printBtn.style.background = '#6a5a8c';
@@ -606,14 +749,6 @@
                 // Abrir diálogo de impresión
                 setTimeout(() => {
                     window.print();
-                    
-                    // Restaurar botón después de imprimir
-                    setTimeout(() => {
-                        printBtn.disabled = false;
-                        btnText.textContent = 'Imprimir CV';
-                        printBtn.style.background = '';
-                    }, 2000);
-                    
                 }, 500);
                 
             }, 800);
@@ -624,39 +759,79 @@
             const printBtn = document.querySelector('.print-btn');
             const btnText = printBtn.querySelector('.btn-text');
             
+            printBtn.classList.remove('pulse');
             printBtn.disabled = false;
             btnText.textContent = 'Imprimir CV';
             printBtn.style.background = '';
         });
 
-        // MEJORAS DE USABILIDAD
+        // COPIA DINÁMICA DE URL
+        function copyURL() {
+            const url = 'https://trabajaconkathe-dk.github.io/-cv-deisy-katherine/';
+            const urlText = document.getElementById('url-text');
+            const qrSection = document.querySelector('.qr-section');
+            
+            // Efecto visual de copiado
+            qrSection.style.background = 'var(--accent-color)';
+            urlText.style.color = 'white';
+            urlText.innerHTML = '✅ ¡URL copiada!';
+            
+            // Copiar al portapapeles
+            navigator.clipboard.writeText(url).then(function() {
+                // Restaurar después de 2 segundos
+                setTimeout(() => {
+                    qrSection.style.background = '';
+                    urlText.style.color = '';
+                    urlText.innerHTML = 'https://trabajaconkathe-dk.github.io/-cv-deisy-katherine/';
+                }, 2000);
+            });
+        }
+
+        // MEJORAS DINÁMICAS
         document.addEventListener('DOMContentLoaded', function() {
-            // Agregar tooltip al botón de impresión
-            const printBtn = document.querySelector('.print-btn');
-            printBtn.title = "Haz clic para imprimir o guardar como PDF";
-            
-            // Efectos de hover mejorados
-            printBtn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px)';
+            // Secciones plegables para móviles
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles.forEach(title => {
+                title.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        const content = this.nextElementSibling;
+                        const isHidden = content.style.display === 'none';
+                        
+                        content.style.display = isHidden ? 'block' : 'none';
+                        this.classList.toggle('active', isHidden);
+                    }
+                });
             });
-            
-            printBtn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
+
+            // Efectos hover mejorados
+            const interactiveElements = document.querySelectorAll('.experience-item, .education-item, .skills-list li');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
             });
-            
-            // Animación de entrada para las secciones
+
+            // Animación de carga progresiva
             const sections = document.querySelectorAll('.section');
             sections.forEach((section, index) => {
                 section.style.animationDelay = `${index * 0.1}s`;
             });
+
+            // Tooltips
+            const printBtn = document.querySelector('.print-btn');
+            printBtn.title = "Haz clic para imprimir o guardar como PDF";
+            
+            const qrSection = document.querySelector('.qr-section');
+            qrSection.title = "Haz clic para copiar la URL de tu CV";
         });
 
-        // COMPATIBILIDAD CON ATS - ESTRUCTURA SEMÁNTICA
-        // El CV utiliza etiquetas semánticas HTML5 que son fácilmente legibles por ATS
-        // - header, main, aside, section, article para estructura clara
-        // - h1, h2, h3 para jerarquía de títulos
-        // - listas ul/li para habilidades
-        // - texto claro y keywords relevantes para la industria
+        // OPTIMIZACIÓN PARA GITHUB PAGES
+        // El archivo debe guardarse como index.html para GitHub Pages
+        console.log('CV optimizado para GitHub Pages - Guarda como index.html');
     </script>
 </body>
 </html>

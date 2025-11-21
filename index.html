@@ -293,6 +293,43 @@
             color: white;
         }
 
+        /* PORTAFOLIO QR ESPECIAL */
+        .portfolio-qr {
+            text-align: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--light-accent), #d8c8f0);
+            border-radius: 12px;
+            border: 2px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-qr:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(138, 121, 179, 0.3);
+        }
+
+        .portfolio-qr img {
+            border-radius: 10px;
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 10px 0;
+            font-size: 10px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 6px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
         /* BOTÓN DE IMPRESIÓN DINÁMICO */
         .print-button-container {
             position: fixed;
@@ -571,6 +608,32 @@
                                 <li>Herramientas Ofimáticas</li>
                             </ul>
                         </div>
+                    </div>
+                </section>
+
+                <!-- PORTAFOLIO CON QR - INTEGRADO BONITO -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-folder-open"></i> Mi Portafolio</h2>
+                    <div class="portfolio-qr">
+                        <p style="margin-bottom: 12px; font-weight: 600; color: var(--primary-color); font-size: 13px;">
+                            🎨 Escanea para ver mi trabajo
+                        </p>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https://www.canva.com/design/DAG1H0l-sS0/view" 
+                             alt="QR Code para mi portafolio creativo"
+                             style="margin-bottom: 10px;">
+                        
+                        <div class="portfolio-stats">
+                            <div class="stat-item">📝 12 Dibujos</div>
+                            <div class="stat-item">🎨 4 Ilustraciones</div>
+                            <div class="stat-item">🏺 11 Esculturas</div>
+                            <div class="stat-item">📸 9 Fotos</div>
+                        </div>
+                        
+                        <a href="https://www.canva.com/design/DAG1H0l-sS0/view" 
+                           target="_blank" 
+                           style="display: inline-block; margin-top: 8px; padding: 6px 12px; background: var(--accent-color); color: white; border-radius: 15px; text-decoration: none; font-weight: 500; font-size: 11px; transition: all 0.3s ease;">
+                            <i class="fas fa-external-link-alt"></i> Ver portafolio online
+                        </a>
                     </div>
                 </section>
 

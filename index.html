@@ -28,7 +28,7 @@
             font-family: 'Playfair Display', sans-serif;
         }
 
-        /* FONDO CON TEXTURA DE MARCAS DE AGUA "DK" - ahora en azul suave */
+        /* FONDO CON TEXTURA DE MARCAS DE AGUA "DK" - ahora MUY sutil (menos es más) */
         .watermark {
             position: fixed;
             top: 0;
@@ -37,9 +37,9 @@
             height: 100%;
             pointer-events: none;
             z-index: -1;
-            opacity: 0.05;
+            opacity: 0.03;           /* Mucho más suave */
             color: #0284c8;
-            font-size: 160px;
+            font-size: 140px;
             font-weight: 900;
             line-height: 1;
             display: flex;
@@ -47,9 +47,9 @@
             align-content: flex-start;
             justify-content: space-around;
             overflow: hidden;
-            transform: rotate(-14deg);
+            transform: rotate(-12deg);
             user-select: none;
-            letter-spacing: -6px;
+            letter-spacing: -8px;
         }
 
         /* BOTÓN IMPRIMIR */
@@ -66,7 +66,7 @@
                 display: none !important;
             }
             .watermark {
-                opacity: 0.03 !important;
+                opacity: 0.02 !important;
             }
             body {
                 background: white !important;
@@ -85,7 +85,6 @@
             box-shadow: 0 10px 25px -5px rgb(2 132 200 / 0.08);
         }
         
-        /* ELEMENTOS GRÁFICOS: líneas decorativas y bloques */
         .section-header {
             position: relative;
             padding-bottom: 12px;
@@ -106,9 +105,9 @@
         }
     </style>
 </head>
-<body class="bg-[#f3e8ff] min-h-screen pb-16">   <!-- Lila suave que contrasta perfectamente con el azul -->
+<body class="bg-[#f3e8ff] min-h-screen pb-16">
 
-    <!-- MARCAS DE AGUA "DK" -->
+    <!-- MARCAS DE AGUA "DK" - muy sutil -->
     <div class="watermark">
         DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK<br>
         DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK&nbsp;&nbsp;DK<br>
@@ -131,13 +130,23 @@
             IMPRIMIR CV
         </button>
 
-        <!-- HEADER PROFESIONAL CON ELEMENTO GRÁFICO -->
+        <!-- HEADER PROFESIONAL -->
         <div class="text-center mb-12">
-            <div class="inline-flex items-center justify-center bg-white rounded-3xl shadow-inner px-10 py-4 mb-6 border border-[#e0d4f0]">
-                <span class="text-7xl font-black heading-font text-[#0284c8] tracking-[-6px] mr-5">DK</span>
+            <div class="inline-flex items-center justify-center bg-white rounded-3xl shadow-inner px-10 py-5 mb-6 border border-[#e0d4f0] relative">
+                <!-- Sello pequeño DK (menos es más) -->
+                <div class="absolute -top-2 -right-2 bg-[#0284c8] text-white text-[22px] font-black heading-font w-9 h-9 flex items-center justify-center rounded-2xl shadow-md rotate-12">DK</div>
+                
                 <div class="text-left">
                     <h1 class="text-4xl font-semibold text-gray-900 heading-font">Deisy Katherine Martínez Chávez</h1>
                     <p class="text-[#0284c8] text-2xl font-medium">Asistente de Dirección Artística &amp; Creadora de Contenido Digital</p>
+                    
+                    <!-- Enlace de portafolio justo debajo del nombre (como pediste) -->
+                    <a href="https://trabajaconkathe-dk.github.io/" 
+                       target="_blank"
+                       class="inline-flex items-center gap-1.5 text-sm text-[#0284c8] hover:underline mt-1 font-medium">
+                        <span class="text-base">🔗</span>
+                        Ver portafolio completo
+                    </a>
                 </div>
             </div>
 
@@ -153,56 +162,50 @@
                 </span>
             </div>
 
-            <!-- Línea gráfica decorativa bajo el header -->
             <div class="w-24 h-px bg-gradient-to-r from-transparent via-[#0284c8] to-transparent mx-auto mt-8"></div>
         </div>
 
-        <!-- BLOQUE 1: PERFIL PROFESIONAL -->
+        <!-- BLOQUE 1: PERFIL PROFESIONAL (Hook actualizado) -->
         <div class="section-card p-8 mb-8">
             <h2 class="section-header text-2xl font-semibold text-[#0284c8] mb-5 flex items-center gap-3">
                 <span class="text-3xl">👩‍🎨</span>
                 Perfil Profesional
             </h2>
             <p class="text-gray-700 leading-relaxed text-[15.5px]">
-                Profesional con más de dos años de experiencia en apoyo administrativo, gestión de proyectos y atención al cliente. 
-                Actualmente me desempeño como <strong>Asistente de Dirección Artística</strong> en una agencia de marketing, donde lidero equipos creativos, 
-                dirijo edición de videos y catálogos, y creo contenido para redes sociales y campañas. Destaco por mis habilidades en diseño gráfico, 
-                edición (Canva, CapCut y Photoshop), producción de contenido como modelo y maquilladora, y coordinación con influencers. 
-                Soy organizada, proactiva, recursiva y práctica, con excelente comunicación y capacidad para entregar resultados de alta calidad en entornos dinámicos.
+                Asistente de Dirección Artística y Creadora de Contenido con enfoque en Animación Digital. Experta en coordinar equipos creativos y logística de proyectos, actualmente expandiendo capacidades técnicas en <strong>ToonBoom Harmony</strong> para la producción de activos animados de alta calidad.
             </p>
         </div>
 
-        <!-- BLOQUE 2: EXPERIENCIA LABORAL -->
+        <!-- BLOQUE 2: EXPERIENCIA LABORAL (con enfoque en logros) -->
         <div class="section-card p-8 mb-8">
             <h2 class="section-header text-2xl font-semibold text-[#0284c8] mb-6">Experiencia Laboral</h2>
             
             <div class="space-y-9">
-                <!-- Cada experiencia es un bloque claro y separado -->
+                <!-- BASADO - reescrito con verbos de acción y logros -->
                 <div class="border-l-4 border-[#0284c8] pl-6">
                     <div class="flex justify-between items-baseline mb-2">
                         <div>
                             <h3 class="font-semibold text-xl">Asistente de Dirección Artística</h3>
-                            <p class="text-[#0284c8]">BASADO – Empresa de Marketing</p>
+                            <p class="text-[#0284c8] font-medium">BASADO – Empresa de Marketing</p>
                         </div>
-                        <p class="text-sm text-gray-500 font-medium">Febrero 2026 – Presente</p>
+                        <p class="text-sm text-gray-500">Febrero 2026 – Presente</p>
                     </div>
                     <ul class="text-gray-700 list-disc pl-5 space-y-1 text-[15.2px]">
-                        <li>Dirijo la edición de catálogos y videos para campañas de marketing.</li>
-                        <li>Lidero el equipo de marketing y equipo creativo en la producción de contenido digital para múltiples clientes.</li>
-                        <li>Actúo como modelo, maquilladora y creadora de contenido, generando material visual atractivo.</li>
-                        <li>Gestiono documentación administrativa (RUT, pólizas, cartas y correos) y logística completa de proyectos.</li>
-                        <li>Contacto y coordino con influencers para colaboraciones estratégicas.</li>
-                        <li>Escribo guiones, dirijo sesiones creativas y administro el calendario de eventos y publicaciones en redes (Canva y CapCut).</li>
+                        <li><strong>Liderazgo Creativo:</strong> Dirijo equipos en la producción de contenido digital para múltiples clientes, asegurando la unidad estética en catálogos y videos.</li>
+                        <li><strong>Producción Integral:</strong> Genero material visual como modelo y maquilladora, además de gestionar la edición avanzada en CapCut y Canva.</li>
+                        <li><strong>Gestión de Influencers:</strong> Coordino colaboraciones estratégicas y manejo la comunicación con creadores externos para ampliar el alcance de las campañas.</li>
+                        <li><strong>Eficiencia Operativa:</strong> Administro la logística completa de proyectos, incluyendo documentación legal (RUT, pólizas) y calendarios editoriales.</li>
                     </ul>
                 </div>
 
+                <!-- Resto de experiencias (mantenidas claras y profesionales) -->
                 <div class="border-l-4 border-[#0284c8] pl-6">
                     <div class="flex justify-between items-baseline mb-2">
                         <div>
                             <h3 class="font-semibold text-xl">Asistente Administrativa</h3>
-                            <p class="text-[#0284c8]">ASOMUDEM - Asociación de Mujeres Emprendedoras</p>
+                            <p class="text-[#0284c8] font-medium">ASOMUDEM - Asociación de Mujeres Emprendedoras</p>
                         </div>
-                        <p class="text-sm text-gray-500 font-medium">2024 – 2025</p>
+                        <p class="text-sm text-gray-500">2024 – 2025</p>
                     </div>
                     <p class="text-gray-700 text-[15.2px]">Apoyo en gestión documental, seguimiento de proyectos comunitarios y atención al público. Coordinación de talleres y actividades. Organización de archivos, informes y correspondencia institucional. Manejo de agenda y logística de eventos. Creación de material visual (afiches, flyers).</p>
                 </div>
@@ -211,9 +214,9 @@
                     <div class="flex justify-between items-baseline mb-2">
                         <div>
                             <h3 class="font-semibold text-xl">Asistente Administrativa</h3>
-                            <p class="text-[#0284c8]">Consultorio Jurídico de Asesorías y Conciliaciones</p>
+                            <p class="text-[#0284c8] font-medium">Consultorio Jurídico de Asesorías y Conciliaciones</p>
                         </div>
-                        <p class="text-sm text-gray-500 font-medium">2023 – 2024</p>
+                        <p class="text-sm text-gray-500">2023 – 2024</p>
                     </div>
                     <p class="text-gray-700 text-[15.2px]">Recepción y registro de usuarios. Manejo de documentación y control de archivo físico y digital. Apoyo en trámites administrativos y coordinación de agendas. Atención telefónica y presencial.</p>
                 </div>
@@ -222,54 +225,57 @@
                     <div class="flex justify-between items-baseline mb-2">
                         <div>
                             <h3 class="font-semibold text-xl">Asesora de Ventas</h3>
-                            <p class="text-[#0284c8]">Consuerte del Meta</p>
+                            <p class="text-[#0284c8] font-medium">Consuerte del Meta</p>
                         </div>
-                        <p class="text-sm text-gray-500 font-medium">Junio 2025 – Julio 2025</p>
+                        <p class="text-sm text-gray-500">Junio 2025 – Julio 2025</p>
                     </div>
                     <p class="text-gray-700 text-[15.2px]">Atención personalizada al cliente y asesoramiento en servicios. Manejo de caja, recargas y transacciones. Cumplimiento de metas de venta y fidelización de clientes.</p>
                 </div>
             </div>
         </div>
 
-        <!-- BLOQUE 3: HABILIDADES (dos columnas claras) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div class="section-card p-8">
-                <h2 class="section-header text-2xl font-semibold text-[#0284c8] mb-6">Habilidades Técnicas</h2>
-                <div class="grid grid-cols-2 gap-y-3 text-[15px]">
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Dirección de Equipos Creativos</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Diseño Gráfico Avanzado (Canva)</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Edición de Video (CapCut)</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Adobe Photoshop</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Escritura de Guiones</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Modelaje y Maquillaje Profesional</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Coordinación con Influencers</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Microsoft Office + Google Workspace</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Gestión Documental y Logística</div>
+        <!-- BLOQUE 3: STACK TECNOLÓGICO (nueva sección) -->
+        <div class="section-card p-8 mb-8">
+            <h2 class="section-header text-2xl font-semibold text-[#0284c8] mb-6">Stack Tecnológico</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Columna Creatividad & Animación -->
+                <div>
+                    <h3 class="text-[#0284c8] font-medium mb-4 flex items-center gap-2">
+                        <span class="text-xl">🎨</span> Creatividad &amp; Animación
+                    </h3>
+                    <div class="space-y-3 text-[15px]">
+                        <div class="flex items-center gap-2"><span class="text-[#0284c8]">→</span> ToonBoom Harmony <span class="text-xs bg-[#e0d4f0] text-[#0284c8] px-2 py-0.5 rounded">En formación</span></div>
+                        <div class="flex items-center gap-2"><span class="text-[#0284c8]">→</span> CapCut (Edición de Video Avanzada)</div>
+                        <div class="flex items-center gap-2"><span class="text-[#0284c8]">→</span> Adobe Photoshop</div>
+                        <div class="flex items-center gap-2"><span class="text-[#0284c8]">→</span> Canva (Diseño Avanzado)</div>
+                        <div class="flex items-center gap-2"><span class="text-[#0284c8]">→</span> Redacción de Guiones</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="section-card p-8">
-                <h2 class="section-header text-2xl font-semibold text-[#0284c8] mb-6">Habilidades Personales</h2>
-                <div class="grid grid-cols-2 gap-y-3 text-[15px]">
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Comunicación Efectiva y Asertiva</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Recursiva y Práctica</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Organización y Gestión del Tiempo</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Trabajo en Equipo y Liderazgo</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Adaptabilidad y Aprendizaje Rápido</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Responsabilidad y Compromiso</div>
-                    <div class="flex items-center gap-2"><span class="text-[#0284c8] text-xl">→</span> Orientación al Cliente</div>
+                <!-- Columna Gestión & Oficina -->
+                <div>
+                    <h3 class="text-[#0284c8] font-medium mb-4 flex items-center gap-2">
+                        <span class="text-xl">📋</span> Gestión &amp; Oficina
+                    </h3>
+                    <div class="space-y-3 text-[15px]">
+                        <div class="flex items-center gap-2"><span class="text-[#0284c8]">→</span> Microsoft Office + Google Workspace</div>
+                        <div class="flex items-center gap-2"><span class="text-[#0284c8]">→</span> Gestión Documental y Logística</div>
+                        <div class="flex items-center gap-2"><span class="text-[#0284c8]">→</span> Atención al Cliente y Ventas</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- BLOQUE 4: FORMACIÓN ACADÉMICA -->
+        <!-- BLOQUE 4: FORMACIÓN ACADÉMICA (actualizada) -->
         <div class="section-card p-8 mb-8">
             <h2 class="section-header text-2xl font-semibold text-[#0284c8] mb-6">Formación Académica</h2>
             <div class="space-y-6">
                 <div class="flex justify-between items-start">
                     <div>
-                        <p class="font-semibold text-[15.5px]">Animación Digital (en curso – Primer Semestre)</p>
+                        <p class="font-semibold text-[15.5px]">Animación Digital (Primer Semestre)</p>
                         <p class="text-[#0284c8]">Taller 5 • 2026</p>
+                        <p class="text-sm text-gray-600 mt-1">Enfoque actual: Dominio de herramientas de industria como ToonBoom Harmony</p>
                     </div>
                     <span class="text-xs bg-[#e0d4f0] text-[#0284c8] px-3 py-1 rounded-full font-medium">Actual</span>
                 </div>
@@ -314,7 +320,7 @@
             </div>
         </div>
 
-        <!-- BLOQUE FINAL: PORTAFOLIO POR MENSAJE -->
+        <!-- BLOQUE FINAL: MENSAJE PORTAFOLIO -->
         <div class="section-card p-8 text-center">
             <h2 class="text-3xl font-semibold text-[#0284c8] mb-4">¿Quieres ver mi portafolio creativo?</h2>
             <p class="text-gray-700 text-xl max-w-md mx-auto">¡Envíame un mensaje! Estoy feliz de compartirlo contigo.</p>
@@ -331,7 +337,7 @@
     </div>
 
     <script>
-        console.log('%c✅ CV PROFESIONAL listo: lila suave + azul, bloques claros para ATS y más elementos gráficos', 'color:#0284c8; font-weight:900; font-size:13px');
+        console.log('%c✅ CV PROFESIONAL ACTUALIZADO listo para GitHub Pages', 'color:#0284c8; font-weight:900; font-size:13px');
     </script>
 </body>
 </html>

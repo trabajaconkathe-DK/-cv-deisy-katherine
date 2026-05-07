@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deisy Martínez - CV Creativo</title>
+    <title>Deisy Martínez · CV Creativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -11,149 +12,131 @@
             box-sizing: border-box;
         }
 
-        /* Variables dinámicas */
+        /* Variables de color lila claro */
         :root {
-            --color-primario: #e67e22;
-            --color-secundario: #2c3e50;
-            --color-texto-sidebar: #ffffff;
-            --color-texto-content: #333333;
-            --color-fondo-sidebar: #2c3e50;
-            --color-fondo-content: #ffffff;
-            --color-acento-bordes: #e67e22;
+            --lila-primario: #8b5cf6;
+            --lila-claro: #c4b5fd;
+            --lila-suave: #ede9fe;
+            --lila-oscuro: #6d28d9;
+            --gris-oscuro: #1f2937;
+            --texto-claro: #4b5563;
             --foto-border-radius: 50%;
-            --layout-direction: row;
-            --sidebar-order: 1;
-            --content-order: 2;
         }
 
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
             padding: 30px 20px;
             min-height: 100vh;
         }
 
-        /* Panel de control flotante */
-        .control-panel {
-            position: sticky;
-            top: 20px;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto 25px auto;
-            border-radius: 20px;
+        /* === BOTONES FLOTANTES === */
+        .floating-buttons {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            align-items: center;
-            justify-content: center;
+            gap: 12px;
             z-index: 1000;
-            font-size: 13px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
+            flex-direction: column;
         }
-        .control-panel label {
+        .float-btn {
+            background: var(--lila-primario);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255,255,255,0.1);
-            padding: 5px 12px;
-            border-radius: 12px;
         }
-        .control-panel input, .control-panel select {
-            padding: 6px 10px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
+        .float-btn:hover {
+            transform: scale(1.05);
+            background: var(--lila-oscuro);
         }
-        .control-panel button {
-            background: #e67e22;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 10px;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
+        .view-btn {
+            background: #10b981;
         }
-        .control-panel button:hover {
-            transform: scale(1.02);
-            filter: brightness(1.05);
+        .view-btn:hover {
+            background: #059669;
         }
-        .file-label {
-            background: #27ae60;
-            padding: 6px 12px;
-            border-radius: 10px;
-            cursor: pointer;
+        .edit-btn {
+            background: var(--lila-primario);
         }
-        .reset-btn {
-            background: #e74c3c !important;
+        body.view-mode .floating-buttons .edit-btn {
+            display: flex;
+        }
+        body.view-mode .floating-buttons .view-btn {
+            display: none;
+        }
+        body.editing-mode .floating-buttons .edit-btn {
+            display: none;
+        }
+        body.editing-mode .floating-buttons .view-btn {
+            display: flex;
         }
 
-        /* Tarjeta CV */
+        /* Tarjeta principal */
         .cv-card {
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 28px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
             display: flex;
-            flex-direction: var(--layout-direction);
             flex-wrap: wrap;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        /* Sidebar */
+        /* Sidebar lila */
         .sidebar {
             flex: 1.2;
             min-width: 280px;
-            background: var(--color-fondo-sidebar);
-            color: var(--color-texto-sidebar);
+            background: linear-gradient(135deg, var(--lila-primario), var(--lila-oscuro));
+            color: white;
             padding: 2rem 1.8rem;
-            order: var(--sidebar-order);
-            transition: all 0.3s;
         }
-        /* Content */
-        .content {
-            flex: 2.5;
-            background: var(--color-fondo-content);
-            color: var(--color-texto-content);
-            padding: 2rem;
-            order: var(--content-order);
-            transition: all 0.3s;
-        }
-
-        /* Foto perfil con carga local */
         .foto-perfil {
             text-align: center;
             margin-bottom: 1.8rem;
+            position: relative;
         }
         .foto-perfil img {
             width: 170px;
             height: 170px;
             object-fit: cover;
             border-radius: var(--foto-border-radius);
-            border: 4px solid var(--color-primario);
-            background: white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: 0.3s;
         }
-        .upload-btn {
-            display: block;
-            margin-top: 12px;
-            background: var(--color-primario);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 12px;
+        .edit-photo-icon {
+            position: absolute;
+            bottom: 5px;
+            right: 20px;
+            background: white;
+            color: var(--lila-primario);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
             transition: 0.2s;
         }
-        .upload-btn:hover {
-            opacity: 0.9;
+        body.view-mode .edit-photo-icon {
+            display: none;
+        }
+        body.editing-mode .edit-photo-icon {
+            display: flex;
         }
         .sidebar h1 {
             font-size: 1.5rem;
@@ -162,10 +145,13 @@
         }
         .sidebar .titulo {
             text-align: center;
-            color: var(--color-primario);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            font-size: 0.95rem;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 50px;
+            display: inline-block;
+            width: auto;
+            margin: 0 auto 1.5rem auto;
+            font-size: 0.85rem;
         }
         .contacto-item {
             margin: 0.8rem 0;
@@ -173,29 +159,33 @@
             align-items: center;
             gap: 10px;
             font-size: 0.85rem;
-            word-break: break-word;
         }
-        .contacto-item a {
-            color: var(--color-primario);
-            text-decoration: none;
+        .contacto-item i {
+            width: 22px;
         }
 
-        /* Estilos contenido */
+        /* Contenido principal */
+        .content {
+            flex: 2.5;
+            background: white;
+            padding: 2rem;
+        }
         .content h3 {
-            color: var(--color-secundario);
-            border-left: 5px solid var(--color-acento-bordes);
+            color: var(--lila-primario);
+            border-left: 5px solid var(--lila-primario);
             padding-left: 15px;
             margin: 1.5rem 0 1rem 0;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
         }
         .content h3:first-of-type {
             margin-top: 0;
         }
         .job {
             margin-bottom: 1.3rem;
-            background: rgba(0,0,0,0.02);
-            padding: 10px;
-            border-radius: 12px;
+            background: var(--lila-suave);
+            padding: 12px 15px;
+            border-radius: 16px;
+            transition: 0.2s;
         }
         .job-header {
             display: flex;
@@ -206,34 +196,76 @@
         .job-titulo {
             font-weight: bold;
             font-size: 1rem;
-            color: var(--color-secundario);
+            color: var(--lila-oscuro);
         }
         .job-fecha {
-            color: var(--color-primario);
-            font-size: 0.8rem;
+            color: var(--lila-primario);
+            font-size: 0.75rem;
             font-weight: 600;
         }
         .job-empresa {
-            color: var(--color-primario);
+            color: var(--lila-oscuro);
             font-weight: 600;
             margin: 0.2rem 0 0.5rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         .job-lista {
             padding-left: 1.2rem;
-            margin-top: 0.3rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.4;
         }
+
+        /* Skill badges creativos */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
         .skill-badge {
-            display: inline-block;
-            background: rgba(0,0,0,0.08);
-            color: var(--color-secundario);
-            padding: 5px 14px;
-            border-radius: 25px;
-            font-size: 0.8rem;
-            margin: 0.25rem;
+            background: linear-gradient(135deg, var(--lila-claro), var(--lila-primario));
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
             transition: 0.2s;
+        }
+
+        /* === BARRAS DE IDIOMAS CREATIVAS === */
+        .language-item {
+            margin-bottom: 20px;
+        }
+        .language-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: var(--gris-oscuro);
+        }
+        .language-bar-bg {
+            background: #e5e7eb;
+            border-radius: 20px;
+            height: 12px;
+            overflow: hidden;
+        }
+        .language-bar-fill {
+            background: linear-gradient(90deg, var(--lila-claro), var(--lila-primario));
+            height: 100%;
+            border-radius: 20px;
+            width: 0%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: white;
+            font-size: 8px;
+        }
+        .level-text {
+            font-size: 12px;
+            color: var(--lila-primario);
+            font-weight: 500;
         }
 
         /* Impresión profesional */
@@ -243,28 +275,23 @@
                 padding: 0;
                 margin: 0;
             }
-            .control-panel {
+            .floating-buttons {
                 display: none !important;
             }
             .cv-card {
-                box-shadow: none !important;
-                margin: 0;
+                box-shadow: none;
                 border-radius: 0;
             }
             .sidebar {
-                background: #2c3e50 !important;
+                background: var(--lila-primario) !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            .content {
-                background: white !important;
-            }
             .job {
                 break-inside: avoid;
-                page-break-inside: avoid;
             }
-            .upload-btn {
-                display: none;
+            .edit-photo-icon {
+                display: none !important;
             }
         }
 
@@ -272,86 +299,71 @@
             .cv-card {
                 flex-direction: column;
             }
-            .control-panel {
-                flex-direction: column;
-                align-items: stretch;
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+            }
+            .float-btn {
+                padding: 8px 14px;
+                font-size: 12px;
             }
         }
     </style>
 </head>
-<body>
+<body class="editing-mode">
 
-<!-- PANEL DE CONTROL DINÁMICO -->
-<div class="control-panel">
-    <strong>🎨 PERSONALIZA TU CV</strong>
-    
-    <label>🎨 Color principal: <input type="color" id="colorPrincipal" value="#e67e22"></label>
-    <label>🎨 Color sidebar: <input type="color" id="colorSidebar" value="#2c3e50"></label>
-    <label>🎨 Color texto sidebar: <input type="color" id="textoSidebar" value="#ffffff"></label>
-    <label>🎨 Color fondo contenido: <input type="color" id="fondoContent" value="#ffffff"></label>
-    
-    <label>📐 Formato foto: 
-        <select id="formaFoto">
-            <option value="50%">⚪ Círculo</option>
-            <option value="15px">🟢 Cuadrado redondeado</option>
-            <option value="0px">⬛ Cuadrado recto</option>
-        </select>
-    </label>
-    
-    <label>🔄 Orden:
-        <select id="ordenColumnas">
-            <option value="row">📸 Foto izquierda</option>
-            <option value="row-reverse">📸 Foto derecha</option>
-        </select>
-    </label>
-    
-    <label class="file-label">📸 Subir foto PNG: <input type="file" id="uploadFoto" accept="image/png, image/jpeg" style="display:none;"></label>
-    <button id="subirFotoBtn" style="background:#27ae60;">Seleccionar archivo</button>
-    
-    <button id="aplicarEstilos">✅ Aplicar todo</button>
-    <button id="resetearEstilos" class="reset-btn">↺ Reset</button>
+<!-- BOTONES FLOTANTES -->
+<div class="floating-buttons">
+    <button class="float-btn edit-btn" id="modoEdicionBtn">
+        <i class="fas fa-pen"></i> Modo edición
+    </button>
+    <button class="float-btn view-btn" id="modoVistaBtn">
+        <i class="fas fa-eye"></i> Solo vista (compartir)
+    </button>
 </div>
 
-<!-- CV PRINCIPAL -->
-<div class="cv-card" id="cvCard">
-    <!-- SIDEBAR IZQUIERDA -->
-    <div class="sidebar" id="sidebar">
+<!-- TARJETA CV -->
+<div class="cv-card">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
         <div class="foto-perfil">
             <img id="miFoto" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Deisy Martínez">
-            <div class="upload-btn" id="uploadBtnTrigger">📸 Haz clic para subir tu foto</div>
+            <div class="edit-photo-icon" id="editPhotoBtn">
+                <i class="fas fa-camera"></i>
+            </div>
+            <input type="file" id="uploadFotoInput" accept="image/png, image/jpeg" style="display:none;">
         </div>
-        <h1>Deisy Katherine Martínez Chávez</h1>
-        <div class="titulo">Asistente de Dirección Artística & Creadora de Contenido Digital</div>
+        <h1>Deisy Katherine <br>Martínez Chávez</h1>
+        <div class="titulo">Asistente de Dirección Artística & Creadora de Contenido</div>
         
-        <div class="contacto-item">📍 <strong>Bogotá, Galerías - Colombia</strong></div>
-        <div class="contacto-item">📞 +57 321 379 5430</div>
-        <div class="contacto-item">✉️ trabajaconkathe@gmail.com</div>
-        <div class="contacto-item">🌐 <a href="#" id="portafolioLink">📁 Portafolio (bajo solicitud)</a></div>
-        <div class="contacto-item">🎯 <strong>Busco:</strong> Híbrido/Remoto · Medio tiempo</div>
+        <div class="contacto-item"><i class="fas fa-map-marker-alt"></i> Bogotá, Galerías - Colombia</div>
+        <div class="contacto-item"><i class="fas fa-phone"></i> +57 321 379 5430</div>
+        <div class="contacto-item"><i class="fas fa-envelope"></i> trabajaconkathe@gmail.com</div>
+        <div class="contacto-item"><i class="fas fa-briefcase"></i> Busco: Híbrido/Remoto · Medio tiempo</div>
+        <div class="contacto-item"><i class="fas fa-folder-open"></i> <a href="#" id="portafolioLink" style="color:white; text-decoration:underline;">Portafolio (bajo solicitud)</a></div>
     </div>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <div class="content" id="content">
+    <div class="content">
         <section>
-            <h3>🌟 Perfil Profesional</h3>
-            <p>Asistente de Dirección Artística y Creadora de Contenido con enfoque en Animación Digital. Experiencia en coordinación creativa, producción visual integral (modelaje, maquillaje, fotografía, video, edición). Actualmente fortaleciendo habilidades en ToonBoom Harmony e ilustración digital en Krita. Busco oportunidad híbrida o remota de medio tiempo en Bogotá.</p>
+            <h3><i class="fas fa-star"></i> Perfil Profesional</h3>
+            <p>Asistente de Dirección Artística y Creadora de Contenido con enfoque en Animación Digital. Experiencia en producción visual integral (modelaje, maquillaje, fotografía, video, edición). Actualmente fortaleciendo ToonBoom Harmony e ilustración en Krita.</p>
         </section>
 
         <section>
-            <h3>💼 Experiencia Laboral</h3>
+            <h3><i class="fas fa-briefcase"></i> Experiencia Laboral</h3>
             
             <div class="job">
                 <div class="job-header">
-                    <span class="job-titulo">Asistente de Dirección Artística / Modelo / Creadora integral</span>
-                    <span class="job-fecha">Febrero 2026 – Abril 2026 (3 meses)</span>
+                    <span class="job-titulo">Asistente de Dirección Artística / Creadora integral</span>
+                    <span class="job-fecha">Feb 2026 – Abr 2026 (3 meses)</span>
                 </div>
                 <div class="job-empresa">BASADO – Empresa de Marketing · Bogotá</div>
                 <ul class="job-lista">
-                    <li>Modelaje y maquillaje para sesiones fotográficas y videos de marca.</li>
-                    <li>Dirección creativa y grabación de videos para contenido digital.</li>
+                    <li>Modelaje, maquillaje, dirección creativa y grabación de videos.</li>
                     <li>Edición de catálogos en Canva y modificación de fotos con IA.</li>
-                    <li>Redacción de guiones y edición de videos (CapCut avanzado, DaVinci Resolve - básico).</li>
-                    <li>Colaboración con marcas de ropa como Genderless y Labeless para definir dirección visual de marca.</li>
+                    <li>Redacción de guiones y edición en CapCut / DaVinci Resolve (básico).</li>
+                    <li>Colaboración con Genderless y Labeless para dirección visual de marca.</li>
                 </ul>
             </div>
 
@@ -360,11 +372,10 @@
                     <span class="job-titulo">Asistente Administrativa</span>
                     <span class="job-fecha">2024 – 2025</span>
                 </div>
-                <div class="job-empresa">ASOMUDEM - Asociación de Mujeres Emprendedoras · Vistahermosa, Meta</div>
+                <div class="job-empresa">ASOMUDEM · Vistahermosa, Meta</div>
                 <ul class="job-lista">
-                    <li>Gestión documental, seguimiento de proyectos comunitarios y atención al público.</li>
-                    <li>Coordinación de talleres, logística de eventos y creación de material visual (afiches, flyers).</li>
-                    <li>Organización de archivos, informes y correspondencia institucional.</li>
+                    <li>Gestión documental, atención al público, logística de eventos.</li>
+                    <li>Creación de material visual (afiches, flyers).</li>
                 </ul>
             </div>
 
@@ -373,146 +384,138 @@
                     <span class="job-titulo">Asistente Administrativa</span>
                     <span class="job-fecha">2023 – 2024</span>
                 </div>
-                <div class="job-empresa">Consultorio Jurídico de Asesorías y Conciliaciones · Vistahermosa</div>
+                <div class="job-empresa">Consultorio Jurídico · Vistahermosa</div>
                 <ul class="job-lista">
-                    <li>Recepción y registro de usuarios, manejo de documentación física y digital.</li>
-                    <li>Apoyo en trámites administrativos, coordinación de agendas y atención telefónica/presencial.</li>
+                    <li>Recepción, registro de usuarios, manejo documental, atención telefónica.</li>
                 </ul>
             </div>
 
             <div class="job">
                 <div class="job-header">
                     <span class="job-titulo">Asesora de Ventas</span>
-                    <span class="job-fecha">Junio 2025 – Julio 2025</span>
+                    <span class="job-fecha">Jun 2025 – Jul 2025</span>
                 </div>
                 <div class="job-empresa">Consuerte del Meta · Vistahermosa</div>
                 <ul class="job-lista">
-                    <li>Atención personalizada al cliente, manejo de caja y transacciones.</li>
-                    <li>Cumplimiento de metas de venta y fidelización de clientes.</li>
+                    <li>Atención al cliente, manejo de caja, cumplimiento de metas.</li>
                 </ul>
             </div>
         </section>
 
         <section>
-            <h3>🎓 Formación Académica</h3>
-            <div class="job"><strong>Animación Digital (Primer Semestre)</strong><br>Taller 5 · 2026</div>
-            <div class="job"><strong>Técnica en Diseño e Integración de Multimedia</strong><br>SENA · 2023</div>
-            <div class="job"><strong>Bachiller Académico</strong><br>Institución Educativa Los Centauros · 2023</div>
+            <h3><i class="fas fa-graduation-cap"></i> Formación</h3>
+            <div class="job"><strong>🎬 Animación Digital</strong><br>Taller 5 · 2026</div>
+            <div class="job"><strong>🎨 Técnica en Diseño Multimedia</strong><br>SENA · 2023</div>
+            <div class="job"><strong>📚 Bachiller Académico</strong><br>Institución Educativa Los Centauros · 2023</div>
         </section>
 
         <section>
-            <h3>🧰 Stack Tecnológico</h3>
-            <div>
+            <h3><i class="fas fa-code"></i> Stack Tecnológico</h3>
+            <div class="skills-container">
                 <span class="skill-badge">🎬 ToonBoom Harmony</span>
-                <span class="skill-badge">🎨 Krita (Ilustración)</span>
-                <span class="skill-badge">🎥 DaVinci Resolve (básico)</span>
-                <span class="skill-badge">✂️ CapCut avanzado</span>
-                <span class="skill-badge">🖼️ Canva avanzado</span>
-                <span class="skill-badge">📸 Adobe Photoshop</span>
-                <span class="skill-badge">📊 MS Office / Google Workspace</span>
-                <span class="skill-badge">🤖 IA para edición de fotos</span>
-                <span class="skill-badge">📝 Redacción de guiones</span>
+                <span class="skill-badge">🎨 Krita</span>
+                <span class="skill-badge">🎥 DaVinci Resolve</span>
+                <span class="skill-badge">✂️ CapCut</span>
+                <span class="skill-badge">🖼️ Canva</span>
+                <span class="skill-badge">📸 Photoshop</span>
+                <span class="skill-badge">📊 MS Office</span>
+                <span class="skill-badge">🤖 IA edición</span>
             </div>
         </section>
 
         <section>
-            <h3>✨ Habilidades Blandas</h3>
-            <div>
-                <span class="skill-badge">💬 Comunicación efectiva</span>
+            <h3><i class="fas fa-heart"></i> Habilidades Blandas</h3>
+            <div class="skills-container">
+                <span class="skill-badge">💬 Comunicación</span>
                 <span class="skill-badge">🤝 Trabajo en equipo</span>
-                <span class="skill-badge">⏰ Organización y gestión del tiempo</span>
+                <span class="skill-badge">⏰ Organización</span>
                 <span class="skill-badge">🔄 Adaptabilidad</span>
                 <span class="skill-badge">🚀 Proactividad</span>
-                <span class="skill-badge">🔍 Atención al detalle</span>
                 <span class="skill-badge">💡 Creatividad</span>
             </div>
         </section>
 
         <section>
-            <h3>📚 Formación Complementaria</h3>
-            <p>Marketing Digital & Estrategia – SENA (2024) · Servicio al Cliente – SENA (2024) · Habilidades Administrativas – SENA (2023-2024)</p>
+            <h3><i class="fas fa-language"></i> Idiomas</h3>
+            <div class="language-item">
+                <div class="language-name">
+                    <span><i class="fas fa-flag-checkered"></i> Español</span>
+                    <span class="level-text">Nativo</span>
+                </div>
+                <div class="language-bar-bg">
+                    <div class="language-bar-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+            <div class="language-item">
+                <div class="language-name">
+                    <span><i class="fas fa-language"></i> Inglés</span>
+                    <span class="level-text">Básico - A2</span>
+                </div>
+                <div class="language-bar-bg">
+                    <div class="language-bar-fill" style="width: 35%;"></div>
+                </div>
+            </div>
         </section>
 
         <section>
-            <h3>🗣️ Idiomas</h3>
-            <p>🇪🇸 Español (Nativo) · 🇬🇧 Inglés (Básico)</p>
+            <h3><i class="fas fa-certificate"></i> Formación Complementaria</h3>
+            <p>📌 Marketing Digital · Servicio al Cliente · Habilidades Administrativas (SENA 2023-2024)</p>
         </section>
     </div>
 </div>
 
 <script>
-    // === CONFIGURACIÓN DE ESTILOS DINÁMICOS ===
-    const root = document.documentElement;
-    
-    // Elementos del panel
-    const colorPrincipal = document.getElementById('colorPrincipal');
-    const colorSidebar = document.getElementById('colorSidebar');
-    const textoSidebar = document.getElementById('textoSidebar');
-    const fondoContent = document.getElementById('fondoContent');
-    const formaFoto = document.getElementById('formaFoto');
-    const ordenColumnas = document.getElementById('ordenColumnas');
-    const aplicarBtn = document.getElementById('aplicarEstilos');
-    const resetBtn = document.getElementById('resetearEstilos');
-    const uploadFotoInput = document.getElementById('uploadFoto');
-    const subirFotoBtn = document.getElementById('subirFotoBtn');
-    const uploadBtnTrigger = document.getElementById('uploadBtnTrigger');
+    // === LÓGICA DE MODOS ===
+    const body = document.body;
+    const modoEdicionBtn = document.getElementById('modoEdicionBtn');
+    const modoVistaBtn = document.getElementById('modoVistaBtn');
+    const editPhotoBtn = document.getElementById('editPhotoBtn');
+    const uploadInput = document.getElementById('uploadFotoInput');
     const miFoto = document.getElementById('miFoto');
 
-    // Aplicar todos los estilos
-    function aplicarEstilos() {
-        root.style.setProperty('--color-primario', colorPrincipal.value);
-        root.style.setProperty('--color-fondo-sidebar', colorSidebar.value);
-        root.style.setProperty('--color-texto-sidebar', textoSidebar.value);
-        root.style.setProperty('--color-fondo-content', fondoContent.value);
-        root.style.setProperty('--color-secundario', colorPrincipal.value);
-        root.style.setProperty('--color-acento-bordes', colorPrincipal.value);
-        root.style.setProperty('--foto-border-radius', formaFoto.value);
-        root.style.setProperty('--layout-direction', ordenColumnas.value);
-    }
+    // Modo solo vista (para compartir)
+    modoVistaBtn.addEventListener('click', () => {
+        body.classList.remove('editing-mode');
+        body.classList.add('view-mode');
+        alert('👁️ Modo solo vista activado. Puedes compartir este link. Para editar la foto, haz clic en "Modo edición"');
+    });
 
-    // Resetear valores por defecto
-    function resetearEstilos() {
-        colorPrincipal.value = '#e67e22';
-        colorSidebar.value = '#2c3e50';
-        textoSidebar.value = '#ffffff';
-        fondoContent.value = '#ffffff';
-        formaFoto.value = '50%';
-        ordenColumnas.value = 'row';
-        aplicarEstilos();
-    }
+    // Modo edición (puede cambiar foto)
+    modoEdicionBtn.addEventListener('click', () => {
+        body.classList.remove('view-mode');
+        body.classList.add('editing-mode');
+    });
 
-    // Subir foto PNG desde archivo local
-    function subirFoto(event) {
+    // Subir foto
+    editPhotoBtn.addEventListener('click', () => {
+        uploadInput.click();
+    });
+
+    uploadInput.addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file && (file.type === 'image/png' || file.type === 'image/jpeg')) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = (e) => {
                 miFoto.src = e.target.result;
             };
             reader.readAsDataURL(file);
         } else {
             alert('Por favor selecciona un archivo PNG o JPG');
         }
-    }
+    });
 
-    // Event listeners
-    aplicarBtn.addEventListener('click', aplicarEstilos);
-    resetBtn.addEventListener('click', resetearEstilos);
-    
-    subirFotoBtn.addEventListener('click', () => uploadFotoInput.click());
-    uploadBtnTrigger.addEventListener('click', () => uploadFotoInput.click());
-    uploadFotoInput.addEventListener('change', subirFoto);
-    
     // Portafolio link
     const portafolioLink = document.getElementById('portafolioLink');
     portafolioLink.addEventListener('click', (e) => {
         e.preventDefault();
-        alert("📌 Mi portafolio está en construcción. Escríbeme a trabajaconkathe@gmail.com y con gusto lo comparto contigo.");
+        alert("📌 Mi portafolio está en construcción. Escríbeme a trabajaconkathe@gmail.com");
     });
 
-    // Inicializar
-    resetearEstilos();
-    console.log('✅ CV dinámico cargado - Puedes cambiar colores y subir tu foto PNG');
+    // Inicializar en modo edición
+    body.classList.add('editing-mode');
+    body.classList.remove('view-mode');
+    
+    console.log('✨ CV creativo cargado - Modo edición: puedes cambiar tu foto');
 </script>
 </body>
 </html>

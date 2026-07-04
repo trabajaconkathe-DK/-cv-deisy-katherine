@@ -12,84 +12,129 @@
             --light-text: #4a5568;
             --line: #cbd5e0;
             --bg-light: #f7fafc;
+            --accent: #48bb78;
         }
         
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.5;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
             color: var(--text);
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 35px 20px;
+            padding: 30px 20px;
             background-color: #ffffff;
         }
 
         header {
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 12px;
-            margin-bottom: 20px;
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         h1 {
             color: var(--primary);
-            margin: 0 0 4px 0;
-            font-size: 25px;
+            margin: 0 0 8px 0;
+            font-size: 28px;
             letter-spacing: -0.5px;
             font-weight: 700;
         }
 
         .tagline {
-            font-size: 13.5px;
+            font-size: 14px;
             font-weight: bold;
             color: var(--secondary);
             margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
         }
 
         .contact-info {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 4px 20px;
+            gap: 8px 20px;
             font-size: 13px;
             color: var(--light-text);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .contact-info a {
-            color: var(--light-text);
+            color: var(--secondary);
             text-decoration: none;
+            font-weight: 500;
         }
 
         .contact-info a:hover {
             text-decoration: underline;
         }
 
+        .preferences {
+            padding: 10px 14px;
+            background-color: var(--bg-light);
+            border-left: 4px solid var(--secondary);
+            font-size: 13px;
+            color: var(--text);
+            margin-top: 8px;
+            border-radius: 3px;
+        }
+
         h2 {
             color: var(--primary);
-            font-size: 14px;
+            font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            border-bottom: 2px solid var(--line);
-            padding-bottom: 3px;
-            margin: 20px 0 10px 0;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 6px;
+            margin: 24px 0 14px 0;
         }
 
         .section-text {
             font-size: 13.5px;
             text-align: justify;
             margin: 0;
+            line-height: 1.7;
+        }
+
+        /* Sección de Logros Destacados */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .highlight-card {
+            background-color: var(--bg-light);
+            padding: 14px;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary);
+            font-size: 13px;
+        }
+
+        .highlight-card strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 6px;
         }
 
         .experience-item {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 3px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .job-title {
@@ -114,31 +159,33 @@
             font-size: 12.5px;
             color: var(--light-text);
             font-style: italic;
-            margin: -2px 0 4px 0;
+            margin: 2px 0 4px 0;
         }
 
         ul {
-            margin: 0;
-            padding-left: 20px;
-            font-size: 13.5px;
+            margin: 6px 0;
+            padding-left: 22px;
+            font-size: 13px;
         }
 
         li {
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             text-align: justify;
+            line-height: 1.6;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px 25px;
-            font-size: 13.5px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px 20px;
+            font-size: 13px;
         }
 
         .skills-group strong {
             color: var(--primary);
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
+            font-size: 13.5px;
         }
 
         .education-container {
@@ -148,30 +195,56 @@
         }
 
         .education-item {
-            font-size: 13.5px;
+            font-size: 13px;
         }
 
         .education-title {
             font-weight: bold;
             color: var(--text);
+            display: block;
+            margin-bottom: 2px;
         }
 
         .education-institution {
             color: var(--light-text);
             display: block;
-            font-size: 12.5px;
+            font-size: 12px;
+        }
+
+        .complementary-section {
+            margin-top: 14px;
+            font-size: 13px;
+        }
+
+        .languages-section {
+            font-size: 13px;
         }
 
         @media print {
             body {
                 padding: 0;
-                font-size: 12px;
+                font-size: 11.5px;
             }
             h2 {
-                margin: 15px 0 6px 0;
+                margin: 16px 0 8px 0;
             }
             .experience-item {
-                margin-bottom: 10px;
+                margin-bottom: 12px;
+            }
+            .highlights-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            .education-container {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 24px;
             }
         }
     </style>
@@ -179,25 +252,52 @@
 <body>
 
     <header>
-        <h1>Deisy Katherine Martínez Chávez</h1>
-        <div class="tagline">
-            Administrative Assistant | Operations Support | Document Management
+        <div class="header-main">
+            <div>
+                <h1>Deisy Katherine Martínez Chávez</h1>
+                <div class="tagline">
+                    Administrative Assistant | Operations Support | Document Management
+                </div>
+            </div>
         </div>
         
         <div class="contact-info">
             <div><strong>Ubicación:</strong> Bogotá D.C., Colombia</div>
-            <div><strong>Teléfono:</strong> 3213795430</div>
+            <div><strong>Teléfono:</strong> +57 321 3795430</div>
             <div><strong>Correo:</strong> <a href="mailto:trabajaconkathe@gmail.com">trabajaconkathe@gmail.com</a></div>
             <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/trabajaconkathe/" target="_blank">linkedin.com/in/trabajaconkathe</a></div>
-            <div><strong>Portafolio:</strong> <a href="https://varonkenneth.github.io/repo-kate/index.html" target="_blank">varonkenneth.github.io/repo-kate/index.html</a></div>
+            <div><strong>Portafolio:</strong> <a href="https://varonkenneth.github.io/repo-kate/index.html" target="_blank">varonkenneth.github.io/repo-kate</a></div>
+            <div><strong>GitHub:</strong> <a href="https://github.com/trabajaconkathe-DK" target="_blank">github.com/trabajaconkathe-DK</a></div>
+        </div>
+
+        <div class="preferences">
+            <strong>Preferencias de Modalidad (Bogotá):</strong> Remoto (Tiempo completo o medio tiempo). Híbrido o presencial solo si es medio tiempo en Chapinero o Galerías.
         </div>
     </header>
 
     <section>
         <h2>Perfil Profesional</h2>
         <p class="section-text">
-            Asistente administrativa con experiencia apoyando procesos operativos, organización documental y registros en organizaciones sociales y entornos creativos. Elaboro documentación de oficina, estructuro bases de datos de información interna y coordino tareas operativas diarias de soporte técnico. Aprendo nuevas herramientas con rapidez y utilizo Inteligencia Artificial para agilizar tareas repetitivas. Busco una posición remota o híbrida donde aportar orden, compromiso y aprendizaje continuo.
+            Asistente administrativa con experiencia integral en la gestión y soporte de procesos documentales, organización de información y coordinación operativa en organizaciones sociales, emprendimientos y productoras creativas. Especializada en estructuración de bases de datos de información interna, redacción de correspondencia administrativa y optimización de tareas mediante Inteligencia Artificial. Aprendera con rapidez herramientas nuevas, manejo efectivo del estrés operativo y busco una posición remota o híbrida donde aportar orden, compromiso y aprendizaje continuo.
         </p>
+    </section>
+
+    <section>
+        <h2>Logros Destacados</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <strong>✓ Implementación de Sistemas</strong>
+                Diseñé e implementé de forma autónoma un sistema completo de registro, control de ventas e inventario en Excel para la unidad productiva EmpoderArte.
+            </div>
+            <div class="highlight-card">
+                <strong>✓ Transformación Digital</strong>
+                Integré herramientas de IA (ChatGPT y Gemini) en flujos de trabajo administrativos, acelerando la elaboración de documentación y optimizando procesos repetitivos.
+            </div>
+            <div class="highlight-card">
+                <strong>✓ Soporte Multidisciplinario</strong>
+                Coordiné exitosamente tareas administrativas, logísticas y creativas en asociaciones sin ánimo de lucro, productoras audiovisuales y emprendimientos independientes.
+            </div>
+        </div>
     </section>
 
     <section>
@@ -205,30 +305,30 @@
 
         <div class="experience-item">
             <div class="experience-header">
-                <span class="job-title">Asistente Administrativa y de Operaciones <span class="company-name">| ASOMUDEM</span></span>
-                <span class="date">2024 – 2025</span>
+                <span class="job-title">Administrative & Creative Operations Assistant <span class="company-name">| BASADO</span></span>
+                <span class="date">Enero 2026 – Mayo 2026</span>
             </div>
             <ul>
-                <li>Elaboré cartas y correspondencia oficial para estructurar la documentación de la asociación.</li>
-                <li>Organicé archivos físicos y digitales para asegurar el acceso rápido a los registros internos.</li>
-                <li>Apoyé la logística operativa y el flujo de información durante el desarrollo de reuniones.</li>
-                <li>Diseñé el sistema de control de ventas y inventarios en Excel de la unidad productiva EmpoderArte.</li>
-                <li>Utilizé herramientas de Inteligencia Artificial para agilizar la redacción técnica de los documentos administrativos.</li>
-                <li>Incorporé el uso de Canva de manera autónoma para optimizar las presentaciones del equipo.</li>
+                <li>Brindé soporte operativo directo al Director Creativo en la coordinación y desarrollo logístico de proyectos audiovisuales.</li>
+                <li>Organicé actividades operativas y cronogramas de seguimiento para proyectos audiovisuales de alta complejidad.</li>
+                <li>Participé en las jornadas de grabación coordinando el orden, la organización y el flujo de información en producción.</li>
+                <li>Gestioné la comunicación digital y resolución de consultas con clientes clave de la productora.</li>
+                <li>Colaboré en la estructuración de cronogramas de trabajo, planificación de contenidos y propuestas creativas para proyectos.</li>
             </ul>
         </div>
 
         <div class="experience-item">
             <div class="experience-header">
-                <span class="job-title">Administrative & Creative Operations Assistant <span class="company-name">| BASADO</span></span>
-                <span class="date">Enero 2026 – Mayo 2026</span>
+                <span class="job-title">Asistente Administrativa y de Operaciones <span class="company-name">| ASOMUDEM</span></span>
+                <span class="date">2024 – 2025</span>
             </div>
             <ul>
-                <li>Apoyé directamente al Director Creativo en la coordinación administrativa básica del día a día.</li>
-                <li>Organicé actividades operativas y cronogramas de seguimiento para proyectos audiovisuales.</li>
-                <li>Participé en las jornadas de grabación coordinando el orden y la organización en producción.</li>
-                <li>Brindé apoyo en la atención de consultas y mensajes digitales de clientes cuando fue requerido.</li>
-                <li>Colaboré con el equipo de trabajo sugiriendo ideas básicas para la planificación de videos.</li>
+                <li>Elaboré cartas formales, actas de reuniones y documentación administrativa interna con estricto apego a normativas.</li>
+                <li>Estructuré, clasifiqué y mantuve actualizado el sistema de gestión documental en soportes físicos y digitales.</li>
+                <li>Asumí la administración del control operativo de la unidad productiva EmpoderArte, organizando información comercial.</li>
+                <li>Diseñé desde cero un sistema de control de ventas y registros de inventario en Excel para apoyo de asociadas y usuarias.</li>
+                <li>Apoyé la logística operativa de reuniones corporativas, asambleas y eventos, garantizando flujo ordenado de información.</li>
+                <li>Utilicé de manera proactiva herramientas de Inteligencia Artificial para optimizar redacción técnica y procesos administrativos.</li>
             </ul>
         </div>
 
@@ -238,9 +338,9 @@
                 <span class="date">2023 – 2024</span>
             </div>
             <ul>
-                <li>Elaboré hojas de vida internas, actas administrativas y certificados laborales bajo los formatos establecidos.</li>
-                <li>Organicé la documentación de archivo del equipo de trabajo para facilitar su control.</li>
-                <li>Utilizé herramientas de Inteligencia Artificial para acelerar los tiempos de corrección y redacción de correspondencia.</li>
+                <li>Elaboré hojas de vida internas, actas administrativas y certificados laborales bajo formatos establecidos.</li>
+                <li>Organicé la documentación y expedientes del equipo de trabajo para facilitar acceso rápido a registros internos.</li>
+                <li>Utilicé herramientas de Inteligencia Artificial para acelerar tiempos de corrección y redacción de correspondencia.</li>
                 <li>Aseguré el orden físico, la organización y la limpieza diaria del espacio de oficina.</li>
             </ul>
         </div>
@@ -250,56 +350,64 @@
                 <span class="job-title">Fundadora <span class="company-name">| DEKORA</span></span>
                 <span class="date">2024 – Actualidad</span>
             </div>
-            <div class="company-desc">Emprendimiento personal de diseño de productos personalizados, artesanías e ilustraciones.</div>
+            <div class="company-desc">Emprendimiento personal de diseño de productos personalizados, artesanías e ilustraciones digitales.</div>
             <ul>
-                <li>Registro las solicitudes de los clientes y coordino los tiempos de entrega de la producción de forma autónoma.</li>
-                <li>Diseño productos personalizados, ilustraciones digitales por encargo y piezas artesanales.</li>
-                <li>Desarrollé la identidad visual básica y el branding inicial para pequeños proyectos comerciales.</li>
-                <li>Investigo referencias de diseño y utilizo IA para optimizar las etapas iniciales del proceso creativo.</li>
+                <li>Registro las solicitudes de clientes y coordino tiempos de entrega de la producción de forma autónoma.</li>
+                <li>Diseño productos personalizados, ilustraciones digitales por encargo y piezas artesanales con investigación previa.</li>
+                <li>Desarrollé la identidad visual básica y el branding inicial para pequeños proyectos comerciales e independientes.</li>
+                <li>Utilizo herramientas de IA para optimizar las etapas iniciales del proceso creativo y conceptualización de proyectos.</li>
             </ul>
         </div>
     </section>
 
     <section>
-        <h2>Competencias</h2>
+        <h2>Competencias Profesionales</h2>
         <div class="skills-grid">
             <div class="skills-group">
-                <strong>Administrativas</strong>
-                Gestión documental, archivo físico y digital, redacción administrativa, organización de información, elaboración de documentos, coordinación operativa y seguimiento de procesos.
+                <strong>Organización y Soporte Administrativo</strong>
+                Gestión documental integral, archivo físico y digital, redacción administrativa, organización de información, elaboración de documentos, coordinación operativa y seguimiento de procesos.
             </div>
             <div class="skills-group">
-                <strong>Digitales</strong>
-                Organización de datos en hojas de cálculo, gestión de archivos en la nube, herramientas de comunicación remota y soporte a usuarios por chat o correo electrónico (Customer Support).
+                <strong>Herramientas Digitales</strong>
+                Organización de datos en hojas de cálculo (Excel avanzado), gestión de archivos en la nube, herramientas de comunicación remota (Teams, Zoom) y soporte a usuarios por chat o correo electrónico.
             </div>
             <div class="skills-group">
-                <strong>Inteligencia Artificial</strong>
-                Uso administrativo de herramientas de IA generativa para agilizar la redacción de correspondencia corporativa, estructurar resúmenes de datos y optimizar tareas operativas repetitivas.
+                <strong>Inteligencia Artificial y Optimización</strong>
+                Aplicación efectiva de herramientas de IA generativa (ChatGPT, Gemini) para agilizar redacción corporativa, estructurar workflows y optimizar tareas operativas repetitivas.
             </div>
             <div class="skills-group">
-                <strong>Personales</strong>
-                Aprendizaje autónomo, adaptabilidad a nuevos entornos, resolución práctica de problemas, comunicación escrita clara, responsabilidad y trabajo en equipo.
+                <strong>Diseño y Creatividad</strong>
+                Diseño gráfico con Canva, edición digital (CapCut, Photoshop básico, Krita), ilustración digital, conceptualización visual y branding para proyectos comerciales.
+            </div>
+            <div class="skills-group">
+                <strong>Autogestión y Aprendizaje</strong>
+                Aprendizaje autónomo, adaptabilidad inmediata a entornos dinámicos, resolución práctica de problemas, comunicación escrita clara, responsabilidad y trabajo colaborativo.
+            </div>
+            <div class="skills-group">
+                <strong>Servicio al Cliente</strong>
+                Comunicación profesional efectiva, atención a consultas, servicio de soporte técnico básico, manejo de dudas y resolución de inquietudes digitales.
             </div>
         </div>
     </section>
 
     <section>
-        <h2>Herramientas</h2>
+        <h2>Herramientas y Plataformas</h2>
         <div class="skills-grid">
             <div class="skills-group">
                 <strong>Microsoft Office & Google Workspace</strong>
-                Microsoft Word, Microsoft Excel, Google Docs, Google Sheets y Google Drive.
+                Microsoft Word, Excel (Avanzado), PowerPoint, Google Docs, Google Sheets, Google Drive, Microsoft Teams, Zoom.
             </div>
             <div class="skills-group">
                 <strong>Diseño, Video y Multimedia</strong>
-                Canva, CapCut, Krita, Photoshop (básico) y DaVinci Resolve (básico).
+                Canva (Avanzado), CapCut, Krita, Adobe Photoshop (Básico), DaVinci Resolve (Básico), Figma (Básico).
             </div>
             <div class="skills-group">
                 <strong>Asistentes de Inteligencia Artificial</strong>
-                ChatGPT y Gemini.
+                ChatGPT Pro, Google Gemini, Adobe Firefly.
             </div>
             <div class="skills-group">
-                <strong>Plataformas y Comunicación</strong>
-                Microsoft Teams, Zoom, GitHub (básico) y HTML (básico).
+                <strong>Plataformas, Desarrollo Web y Control de Versiones</strong>
+                GitHub (Básico), HTML5 (Básico), CSS3 (Básico), Netlify, Vercel, LinkedIn, Portafolio Web.
             </div>
         </div>
     </section>
@@ -317,21 +425,22 @@
             </div>
         </div>
         
-        <div style="margin-top: 12px; font-size: 13.5px;">
-            <strong>Formación Complementaria por Categorías:</strong>
+        <div class="complementary-section">
+            <strong>Formación Complementaria por Área:</strong>
             <ul>
-                <li><strong>Marketing y Contenidos:</strong> Cursos de Marketing y Emprendimiento, Marketing de Contenidos.</li>
-                <li><strong>Producción y Creatividad:</strong> Cursos de Producción Audiovisual, Fotografía, Ilustración Digital, Escritura Audiovisual y Pensamiento Creativo.</li>
-                <li><strong>Soporte y Comunidad:</strong> Cursos de Servicio al Cliente y Promotora de Paz (Escuela Popular Yo Decido).</li>
+                <li><strong>Marketing Digital y Emprendimiento:</strong> Marketing de Contenidos, Marketing y Emprendimiento, Fotografía Digital, Ilustración Digital.</li>
+                <li><strong>Producción y Comunicación Audiovisual:</strong> Producción Audiovisual, Escritura Audiovisual, Pensamiento Creativo, Edición de Video (CapCut, DaVinci Resolve).</li>
+                <li><strong>Soporte y Liderazgo:</strong> Servicio al Cliente (Customer Support), Mediación y Liderazgo (Escuela Popular Yo Decido).</li>
+                <li><strong>Desarrollo Web Básico:</strong> HTML5, CSS3, Fundamentos de Git y GitHub, Crear Portafolios Web.</li>
             </ul>
         </div>
     </section>
 
-    <section>
+    <section class="languages-section">
         <h2>Idiomas</h2>
         <ul>
-            <li><strong>Español:</strong> Nativo</li>
-            <li><strong>Inglés:</strong> Básico (lectura técnica de documentación e interfaces)</li>
+            <li><strong>Español:</strong> Nativo — Competencia lingüística completa, redacción profesional y comunicación efectiva.</li>
+            <li><strong>Inglés:</strong> Nivel Básico-Intermedio — Lectura técnica de manuales, interfaces de software, documentación y plataformas digitales internacionales.</li>
         </ul>
     </section>
 
